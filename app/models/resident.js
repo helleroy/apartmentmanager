@@ -7,6 +7,7 @@ var ResidentSchema = new Schema({
     name: {type: String, required: true},
     email: {type: String},
     phone: {type: String},
+    owner: {type: Boolean},
     apartment: {type: Schema.ObjectId, ref: 'Apartment'},
     parking: {type: Schema.ObjectId, ref: 'Parking'}
 });

@@ -34,7 +34,7 @@ exports.all = function (req, res) {
 };
 
 exports.update = function (req, res) {
-    var resident = req.fantasyteam;
+    var resident = req.resident;
     resident = _.extend(resident, req.body);
     resident.save(function () {
         res.jsonp(resident);
@@ -42,7 +42,7 @@ exports.update = function (req, res) {
 };
 
 exports.destroy = function (req, res) {
-    var resident = req.league;
+    var resident = req.apartment;
     resident.remove(function (err) {
         if (err) {
             res.render('error', {status: 500});
