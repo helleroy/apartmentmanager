@@ -1,17 +1,9 @@
 'use strict';
 
-/**
- * Module dependencies.
- */
 var express = require('express'),
     fs = require('fs'),
     passport = require('passport'),
     logger = require('mean-logger');
-
-/**
- * Main application entry file.
- * Please note that the order of loading is important.
- */
 
 // Load configurations
 // Set the node enviornment variable if not set before
