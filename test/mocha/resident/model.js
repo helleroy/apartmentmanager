@@ -2,32 +2,21 @@
 
 var should = require('should'),
     mongoose = require('mongoose'),
-    User = mongoose.model('User'),
     Resident = mongoose.model('Resident');
 
 //Globals
-var user;
 var resident;
 
-//The tests
+//The Tests
 describe('<Unit Test>', function() {
     describe('Model Resident:', function() {
         beforeEach(function(done) {
-            user = new User({
-                name: 'Full name',
-                email: 'test@test.com',
-                username: 'user',
-                password: 'password'
+            resident = new Resident({
+                name: 'Ola Nordmann',
+                email: 'lol@lol.com'
             });
 
-            user.save(function() {
-                resident = new Resident({
-                    name: 'Ola Nordmann',
-                    email: 'lol@lol.com'
-                });
-
-                done();
-            });
+            done();
         });
 
         describe('Method Save', function() {
@@ -50,12 +39,10 @@ describe('<Unit Test>', function() {
 
         afterEach(function(done) {
             Resident.remove({});
-            User.remove({});
             done();
         });
         after(function(done) {
             Resident.remove().exec();
-            User.remove().exec();
             done();
         });
     });
