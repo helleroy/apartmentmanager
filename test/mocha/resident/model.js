@@ -1,20 +1,17 @@
 'use strict';
 
-/**
- * Module dependencies.
- */
 var should = require('should'),
     mongoose = require('mongoose'),
     User = mongoose.model('User'),
-    Article = mongoose.model('Article');
+    Resident = mongoose.model('Resident');
 
 //Globals
 var user;
-var article;
+var resident;
 
 //The tests
 describe('<Unit Test>', function() {
-    describe('Model Article:', function() {
+    describe('Model Resident:', function() {
         beforeEach(function(done) {
             user = new User({
                 name: 'Full name',
@@ -24,10 +21,9 @@ describe('<Unit Test>', function() {
             });
 
             user.save(function() {
-                article = new Article({
-                    title: 'Article Title',
-                    content: 'Article Content',
-                    user: user
+                resident = new Resident({
+                    name: 'Ola Nordmann',
+                    email: 'lol@lol.com'
                 });
 
                 done();
@@ -36,16 +32,16 @@ describe('<Unit Test>', function() {
 
         describe('Method Save', function() {
             it('should be able to save without problems', function(done) {
-                return article.save(function(err) {
+                return resident.save(function(err) {
                     should.not.exist(err);
                     done();
                 });
             });
 
-            it('should be able to show an error when try to save without title', function(done) {
-                article.title = '';
+            it('should be able to show an error when try to save without name', function(done) {
+                resident.name = '';
 
-                return article.save(function(err) {
+                return resident.save(function(err) {
                     should.exist(err);
                     done();
                 });
@@ -53,12 +49,12 @@ describe('<Unit Test>', function() {
         });
 
         afterEach(function(done) {
-            Article.remove({});
+            Resident.remove({});
             User.remove({});
             done();
         });
         after(function(done) {
-            Article.remove().exec();
+            Resident.remove().exec();
             User.remove().exec();
             done();
         });
