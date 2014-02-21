@@ -9,15 +9,15 @@ var ResidentSchema = new Schema({
     phone: {type: String},
     owner: {type: Boolean},
     apartment: {type: Schema.ObjectId, ref: 'Apartment'},
-    parking: {type: Schema.ObjectId, ref: 'Parking'}
+    parkingSpot: {type: Schema.ObjectId, ref: 'ParkingSpot'}
 });
 
 ResidentSchema.statics = {
     load: function(id, cb) {
-        this.findOne({_id: id}).populate('apartment').populate('parking').exec(cb);
+        this.findOne({_id: id}).populate('apartment').populate('parkingSpot').exec(cb);
     },
     all: function(cb) {
-        this.find().populate('apartment').populate('parking').exec(cb);
+        this.find().populate('apartment').populate('parkingSpot').exec(cb);
     }
 };
 
