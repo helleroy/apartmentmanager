@@ -9,7 +9,10 @@ angular.module('am.system').controller('HeaderController', ['$scope', 'Global', 
     }, {
         'title': 'Create New Article',
         'link': 'articles/create'
+    }, {
+        'title': 'Create New Resident',
+        'link': 'residents/create'
     }];
-    
+
     $scope.isCollapsed = false;
 }]);
