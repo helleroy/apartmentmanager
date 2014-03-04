@@ -5,8 +5,12 @@ angular.module('am.system').controller('HeaderController', ['$scope', 'Global', 
 
     $scope.menu = [
         {
-            'title': 'Residents',
-            'link': 'residents'
+            title: 'Residents',
+            link: 'residents'
+        },
+        {
+            title: 'Apartments',
+            link: 'apartments'
         }
     ];
 

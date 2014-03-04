@@ -1,0 +1,32 @@
+<div ng-controller="ApartmentsController" ng-init="find()">
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>Apartment ID</th>
+            <th>Stairway</th>
+            <th>Ownership Date</th>
+            <th>Is rented out</th>
+            <th>Rented since</th>
+            <th>Residents</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="apartment in apartments">
+            <td>{{ apartment.apartmentId }}</td>
+            <td>{{ apartment.stairway }}</td>
+            <td>{{ apartment.ownershipDate }}</td>
+            <td>{{ apartment.isRented }}</td>
+            <td>{{ apartment.rendtedSinceDate }}</td>
+            <td><span ng-repeat="resident in apartment.residents">
+                <span ng-if="!$last">
+                    {{ resident.name }},
+                </span>
+                <span ng-if="$last">
+                    {{ resident.name }}
+                </span>
+            </span></td>
+        </tr>
+        </tbody>
+    </table>
+    <a href="/#!/apartments/create">Add apartment</a>
+</div>

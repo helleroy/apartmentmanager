@@ -1,0 +1,14 @@
+<div ng-controller="ApartmentsController" ng-init="findOne()">
+    <h2>Apartment</h2>
+    <ul class="list-group">
+        <li class="list-group-item">{{ apartment.apartmentId }}</li>
+        <li class="list-group-item">{{ apartment.stairway }}</li>
+        <li class="list-group-item">{{ apartment.ownershipDate }}</li>
+        <li class="list-group-item">{{ apartment.isRented }}</li>
+        <li class="list-group-item">{{ apartment.rentedSinceDate }}</li>
+    </ul>
+    <h2>Residents</h2>
+    <ul class="list-group">
+        <li ng-repeat="resident in apartment.residents" class="list-group-item">{{ resident.name }}</li>
+    </ul>
+</div>
