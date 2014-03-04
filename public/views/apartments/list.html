@@ -12,7 +12,7 @@
         </thead>
         <tbody>
         <tr ng-repeat="apartment in apartments">
-            <td>{{ apartment.apartmentId }}</td>
+            <td><a href="/#!/apartments/{{ apartment._id }}">{{ apartment.apartmentId }}</a></td>
             <td>{{ apartment.stairway }}</td>
             <td>{{ apartment.ownershipDate }}</td>
             <td>{{ apartment.isRented }}</td>

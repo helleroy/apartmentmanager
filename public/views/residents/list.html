@@ -12,7 +12,7 @@
         <tbody>
         <tr ng-repeat="resident in residents">
             <td><a ng-href="/#!/residents/{{ resident._id }}">{{ resident.name }}</a></td>
-            <td>{{ resident.apartment }}</td>
+            <td><a href="/#!/apartments/{{ resident.apartment._id }}">{{ resident.apartment.apartmentId }}</a></td>
             <td>{{ resident.email }}</td>
             <td>{{ resident.phone }}</td>
             <td>{{ resident.parkingSpot }}</td>

@@ -6,7 +6,6 @@ angular.module('am.apartments').controller('ApartmentsController', ['$scope', '$
 
         $scope.populateResidents = function (query) {
             Residents.query(query, function (residents) {
-                console.log(residents);
                 $scope.residents = residents;
             });
         };

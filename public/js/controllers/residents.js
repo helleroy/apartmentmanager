@@ -1,8 +1,14 @@
 'use strict';
 
-angular.module('am.residents').controller('ResidentsController', ['$scope', '$stateParams', '$location', 'Global', 'Residents',
-    function ($scope, $stateParams, $location, Global, Residents) {
+angular.module('am.residents').controller('ResidentsController', ['$scope', '$stateParams', '$location', 'Global', 'Residents', 'Apartments',
+    function ($scope, $stateParams, $location, Global, Residents, Apartments) {
         $scope.global = Global;
+
+        $scope.populateApartments = function (query) {
+            Apartments.query(query, function (apartments) {
+                $scope.apartments = apartments;
+            });
+        };
 
         $scope.create = function () {
             var resident = new Residents({

@@ -1,4 +1,4 @@
-<section ng-controller="ResidentsController">
+<section ng-controller="ResidentsController" ng-init="populateApartments()">
     <form ng-submit="create()">
         <div class="form-group">
             <label for="name" class="col-md-2 control-label">Name</label>
@@ -16,6 +16,12 @@
             <label for="phone" class="col-md-2 control-label">Phone Number</label>
             <div class="col-md-10">
                 <input type="text" class="form-control" data-ng-model="resident.phone" id="phone" placeholder="Phone Number" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="apartment" class="col-md-2 control-label">Phone Number</label>
+            <div class="col-md-10">
+                <select class="form-control" data-ng-model="resident.apartment" id="apartment" ng-options="a._id as a.apartmentId for a in apartments"></select>
             </div>
         </div>
         <div class="form-group">
