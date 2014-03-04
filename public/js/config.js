@@ -34,6 +34,10 @@ angular.module('am').config(['$stateProvider', '$urlRouterProvider',
                 url: '/residents/:residentId',
                 templateUrl: 'views/residents/view.html'
             })
+            .state('create apartment', {
+                url: '/apartments/create',
+                templateUrl: 'views/apartments/create.html'
+            })
             .state('home', {
                 url: '/',
                 templateUrl: 'views/index.html'
