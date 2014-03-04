@@ -3,10 +3,8 @@
 //Setting up route
 angular.module('am').config(['$stateProvider', '$urlRouterProvider',
     function($stateProvider, $urlRouterProvider) {
-        // For unmatched routes:
         $urlRouterProvider.otherwise('/');
 
-        // states for my app
         $stateProvider
             .state('all articles', {
                 url: '/articles',
@@ -24,9 +22,17 @@ angular.module('am').config(['$stateProvider', '$urlRouterProvider',
                 url: '/articles/:articleId',
                 templateUrl: 'views/articles/view.html'
             })
+            .state('all residents', {
+                url: '/residents',
+                templateUrl: 'views/residents/list.html'
+            })
             .state('create resident', {
                 url: '/residents/create',
                 templateUrl: 'views/residents/create.html'
+            })
+            .state('resident by id', {
+                url: '/residents/:residentId',
+                templateUrl: 'views/residents/view.html'
             })
             .state('home', {
                 url: '/',

@@ -41,7 +41,7 @@ angular.module('am.residents').controller('ResidentsController', ['$scope', '$st
         };
 
         $scope.findOne = function () {
-            Residents.get({_id: $stateParams.residentId}, function (resident) {
+            Residents.get({residentId: $stateParams.residentId}, function (resident) {
                 $scope.resident = resident;
             });
         };

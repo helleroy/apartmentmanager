@@ -1,0 +1,16 @@
+<div ng-controller="ResidentsController" ng-init="findOne()">
+    <h2>Resident</h2>
+    <ul class="list-group">
+        <li class="list-group-item">{{ resident.name }}</li>
+        <li class="list-group-item">{{ resident.email }}</li>
+        <li class="list-group-item">{{ resident.phone }}</li>
+    </ul>
+    <h2>Apartment</h2>
+    <ul class="list-group">
+        <li class="list-group-item">{{ resident.apartment.id }}</li>
+    </ul>
+    <h2>Parking Spot</h2>
+    <ul class="list-group">
+        <li class="list-group-item">{{ resident.apartment.id }}</li>
+    </ul>
+</div>
