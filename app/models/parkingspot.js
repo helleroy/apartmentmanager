@@ -6,8 +6,7 @@ var mongoose = require('mongoose'),
 var ParkingSpotSchema = new Schema({
     parkingSpotId: {type: Number, required: true},
     occupied: {type: Boolean},
-    occupiedSinceDate: {type: Date},
-    owner: {type: Schema.ObjectId, ref: 'Resident'}
+    occupiedSinceDate: {type: Date}
 });
 
 ParkingSpotSchema.statics = {

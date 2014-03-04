@@ -10,30 +10,6 @@ angular.module('am.apartments').controller('ApartmentsController', ['$scope', '$
             });
         };
 
-        $scope.toggleResident = function (id) {
-            if ($scope.apartment === undefined) {
-                $scope.apartment = {};
-            }
-            if ($scope.apartment.residents === undefined) {
-                $scope.apartment.residents = [];
-            }
-
-            var push = true;
-            for (var i in $scope.apartment.residents) {
-                if ($scope.apartment.residents[i] === id) {
-                    $scope.apartment.residents.splice(i, 1);
-                    push = false;
-                    break;
-                }
-            }
-
-            if (push) {
-                this.apartment.residents.push(id);
-            }
-
-            console.log($scope.apartment.residents);
-        };
-
         $scope.create = function () {
             var apartment = new Apartments({
                 apartmentId: this.apartment.apartmentId,

@@ -1,4 +1,4 @@
-<div ng-controller="ApartmentsController" ng-init="findOne()">
+<div ng-controller="ApartmentsController" ng-init="findOne();populateResidents()">
     <h2>Apartment</h2>
     <ul class="list-group">
         <li class="list-group-item">{{ apartment.apartmentId }}</li>
@@ -9,6 +9,6 @@
     </ul>
     <h2>Residents</h2>
     <ul class="list-group">
-        <li ng-repeat="resident in apartment.residents" class="list-group-item">{{ resident.name }}</li>
+        <li class="list-group-item" ng-repeat="resident in residents | filter:apartment.apartmentId">{{ resident.name }}</li>
     </ul>
 </div>

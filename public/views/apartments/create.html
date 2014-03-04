@@ -1,5 +1,5 @@
 <div ng-controller="ApartmentsController">
-    <form ng-submit="create()" ng-init="populateResidents()">
+    <form ng-submit="create()">
         <div class="form-group">
             <label for="apartmentId" class="col-md-2 control-label">Apartment ID</label>
             <div class="col-md-10">
@@ -10,12 +10,6 @@
             <label for="stairway" class="col-md-2 control-label">Stairway</label>
             <div class="col-md-10">
                 <input type="text" class="form-control" data-ng-model="apartment.stairway" id="stairway" placeholder="Stairway" required>
-            </div>
-        </div>
-        <div class="form-group">
-            <div ng-repeat="resident in residents">
-                <label for="{{ resident._id }}">{{ resident.name }}</label>
-                <input type="checkbox" id="{{ resident._id }}" value="{{ resident._id }}" ng-click="toggleResident(resident._id)">
             </div>
         </div>
         <div class="form-group">

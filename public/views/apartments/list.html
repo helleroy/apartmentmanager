@@ -1,4 +1,4 @@
-<div ng-controller="ApartmentsController" ng-init="find()">
+<div ng-controller="ApartmentsController" ng-init="find();populateResidents()">
     <table class="table table-bordered table-striped">
         <thead>
         <tr>
@@ -17,7 +17,7 @@
             <td>{{ apartment.ownershipDate }}</td>
             <td>{{ apartment.isRented }}</td>
             <td>{{ apartment.rendtedSinceDate }}</td>
-            <td><span ng-repeat="resident in apartment.residents">
+            <td><span ng-repeat="resident in residents | filter:apartment.apartmentId">
                 <span ng-if="!$last">
                     {{ resident.name }},
                 </span>
