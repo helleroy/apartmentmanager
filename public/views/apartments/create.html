@@ -1,32 +1,33 @@
 <div ng-controller="ApartmentsController">
     <form ng-submit="create()">
         <div class="form-group">
-            <label for="apartmentId" class="col-md-2 control-label">Apartment ID</label>
-            <div class="col-md-10">
-                <input type="text" class="form-control" data-ng-model="apartment.apartmentId" id="apartmentId" placeholder="Apartment ID" required>
+            <label for="apartmentId">Apartment ID</label>
+            <input type="text" class="form-control" data-ng-model="apartment.apartmentId" id="apartmentId" placeholder="Apartment ID" required>
+        </div>
+        <div class="form-group">
+            <label for="stairway">Stairway</label>
+            <input type="text" class="form-control" data-ng-model="apartment.stairway" id="stairway" placeholder="Stairway" required>
+        </div>
+        <div class="form-group">
+            <label for="ownershipDate">Ownership date</label>
+            <div class="input-group">
+                <input type="text" id="ownershipDate" class="form-control" datepicker-popup="dd-MMMM-yyyy" ng-model="apartment.ownershipDate" is-open="ownershipDatePicker" placeholder="Choose date">
+                <span class="input-group-btn"><button class="btn btn-default" ng-click="openDatePicker($event, 'ownershipDatePicker')"><i class="glyphicon glyphicon-calendar"></i></button></span>
             </div>
         </div>
         <div class="form-group">
-            <label for="stairway" class="col-md-2 control-label">Stairway</label>
-            <div class="col-md-10">
-                <input type="text" class="form-control" data-ng-model="apartment.stairway" id="stairway" placeholder="Stairway" required>
+            <label for="isRented">Is the apartment rented?</label>
+            <input type="checkbox" ng-model="apartment.isRented" id="isRented">
+        </div>
+        <div class="form-group" ng-show="apartment.isRented">
+            <label for="rentedFromDate">Rented since date</label>
+            <div class="input-group">
+                <input type="text" id="rentedFromDate" class="form-control" datepicker-popup="dd-MMMM-yyyy" ng-model="apartment.rentedFromDate" is-open="rentedDatePicker" placeholder="Choose date" />
+                <span class="input-group-btn"><button class="btn btn-default" ng-click="openDatePicker($event, 'rentedDatePicker')"><i class="glyphicon glyphicon-calendar"></i></button></span>
             </div>
         </div>
         <div class="form-group">
-            <label for="ownershipDate" class="col-md-2 control-label">Ownership date</label>
-            <div class="col-md-10">
-                <div class="input-group">
-                    <input type="text" id="ownershipDate" class="form-control" datepicker-popup="dd-MMMM-yyyy" ng-model="apartment.ownershipDate" is-open="ownershipDatePickerOpen" placeholder="Choose date" />
-                    <span class="input-group-btn">
-                        <button class="btn btn-default" ng-click="openOwnershipDatePicker($event)"><i class="glyphicon glyphicon-calendar"></i></button>
-                    </span>
-                </div>
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <button type="submit" class="btn btn-default">Submit</button>
-            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
         </div>
     </form>
 </div>

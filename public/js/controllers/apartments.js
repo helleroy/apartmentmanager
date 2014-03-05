@@ -16,8 +16,7 @@ angular.module('am.apartments').controller('ApartmentsController', ['$scope', '$
                 stairway: this.apartment.stairway,
                 ownershipDate: this.apartment.ownershipDate,
                 isRented: this.apartment.isRented,
-                rentedSinceDate: this.apartment.rentedSinceDate,
-                residents: this.apartment.residents
+                rentedSinceDate: this.apartment.rentedSinceDate
             });
 
             apartment.$save(function (response) {
@@ -29,7 +28,6 @@ angular.module('am.apartments').controller('ApartmentsController', ['$scope', '$
             this.apartment.ownershipDate = '';
             this.apartment.isRented = false;
             this.apartment.rentedSinceDate = '';
-            this.apartment.residents = [];
         };
 
         $scope.update = function () {
@@ -61,10 +59,10 @@ angular.module('am.apartments').controller('ApartmentsController', ['$scope', '$
             }
         };
 
-        $scope.openOwnershipDatePicker = function($event) {
+        $scope.openDatePicker = function($event, target) {
             $event.preventDefault();
             $event.stopPropagation();
 
-            $scope.ownershipDatePickerOpen = true;
+            $scope[target] = true;
         };
     }]);
