@@ -60,4 +60,11 @@ angular.module('am.apartments').controller('ApartmentsController', ['$scope', '$
                 }
             }
         };
+
+        $scope.openOwnershipDatePicker = function($event) {
+            $event.preventDefault();
+            $event.stopPropagation();
+
+            $scope.ownershipDatePickerOpen = true;
+        };
     }]);

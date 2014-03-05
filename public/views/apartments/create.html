@@ -13,6 +13,17 @@
             </div>
         </div>
         <div class="form-group">
+            <label for="ownershipDate" class="col-md-2 control-label">Ownership date</label>
+            <div class="col-md-10">
+                <div class="input-group">
+                    <input type="text" id="ownershipDate" class="form-control" datepicker-popup="dd-MMMM-yyyy" ng-model="apartment.ownershipDate" is-open="ownershipDatePickerOpen" placeholder="Choose date" />
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" ng-click="openOwnershipDatePicker($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <button type="submit" class="btn btn-default">Submit</button>
             </div>
