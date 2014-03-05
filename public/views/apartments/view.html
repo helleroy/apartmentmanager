@@ -11,4 +11,5 @@
     <ul class="list-group">
         <li class="list-group-item" ng-repeat="resident in residents | filter:apartment.apartmentId">{{ resident.name }}</li>
     </ul>
+    <a href="/#!/apartments/{{ apartment._id }}/edit">Edit apartment</a>
 </div>

@@ -32,6 +32,9 @@ angular.module('am.apartments').controller('ApartmentsController', ['$scope', '$
 
         $scope.update = function () {
             var apartment = $scope.apartment;
+            if (!apartment.isRented) {
+                apartment.rentedSinceDate = '';
+            }
 
             apartment.$update(function () {
                 $location.path('apartments/' + apartment._id);
