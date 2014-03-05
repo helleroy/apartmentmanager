@@ -59,10 +59,14 @@ angular.module('am.apartments').controller('ApartmentsController', ['$scope', '$
             }
         };
 
-        $scope.openDatePicker = function($event, target) {
+        $scope.toggleDatePicker = function($event, target) {
             $event.preventDefault();
             $event.stopPropagation();
 
-            $scope[target] = true;
+            if ($scope[target]) {
+                $scope[target] = false;
+            } else {
+                $scope[target] = true;
+            }
         };
     }]);

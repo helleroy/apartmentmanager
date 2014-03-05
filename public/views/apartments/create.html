@@ -12,7 +12,7 @@
             <label for="ownershipDate">Ownership date</label>
             <div class="input-group">
                 <input type="text" id="ownershipDate" class="form-control" datepicker-popup="dd-MMMM-yyyy" ng-model="apartment.ownershipDate" is-open="ownershipDatePicker" placeholder="Choose date">
-                <span class="input-group-btn"><button class="btn btn-default" ng-click="openDatePicker($event, 'ownershipDatePicker')"><i class="glyphicon glyphicon-calendar"></i></button></span>
+                <span class="input-group-btn"><button class="btn btn-default" ng-click="toggleDatePicker($event, 'ownershipDatePicker')"><i class="glyphicon glyphicon-calendar"></i></button></span>
             </div>
         </div>
         <div class="form-group">
@@ -22,8 +22,8 @@
         <div class="form-group" ng-show="apartment.isRented">
             <label for="rentedFromDate">Rented since date</label>
             <div class="input-group">
-                <input type="text" id="rentedFromDate" class="form-control" datepicker-popup="dd-MMMM-yyyy" ng-model="apartment.rentedFromDate" is-open="rentedDatePicker" placeholder="Choose date" />
-                <span class="input-group-btn"><button class="btn btn-default" ng-click="openDatePicker($event, 'rentedDatePicker')"><i class="glyphicon glyphicon-calendar"></i></button></span>
+                <input type="text" id="rentedFromDate" class="form-control" datepicker-popup="dd-MMMM-yyyy" ng-model="apartment.rentedSinceDate" is-open="rentedDatePicker" placeholder="Choose date" />
+                <span class="input-group-btn"><button class="btn btn-default" ng-click="toggleDatePicker($event, 'rentedDatePicker')"><i class="glyphicon glyphicon-calendar"></i></button></span>
             </div>
         </div>
         <div class="form-group">

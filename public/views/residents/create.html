@@ -1,33 +1,29 @@
 <section ng-controller="ResidentsController" ng-init="populateApartments()">
     <form ng-submit="create()">
         <div class="form-group">
-            <label for="name" class="col-md-2 control-label">Name</label>
-            <div class="col-md-10">
-                <input type="text" class="form-control" data-ng-model="resident.name" id="name" placeholder="Name" required>
-            </div>
+            <label for="name">Name</label>
+            <input type="text" class="form-control" data-ng-model="resident.name" id="name" placeholder="Name" required>
         </div>
         <div class="form-group">
-            <label for="email" class="col-md-2 control-label">Email</label>
-            <div class="col-md-10">
-                <input type="text" class="form-control" data-ng-model="resident.email" id="email" placeholder="Email" required>
-            </div>
+            <label for="email">Email</label>
+            <input type="text" class="form-control" data-ng-model="resident.email" id="email" placeholder="Email" required>
         </div>
         <div class="form-group">
-            <label for="phone" class="col-md-2 control-label">Phone Number</label>
-            <div class="col-md-10">
-                <input type="text" class="form-control" data-ng-model="resident.phone" id="phone" placeholder="Phone Number" required>
-            </div>
+            <label for="phone">Phone Number</label>
+            <input type="text" class="form-control" data-ng-model="resident.phone" id="phone" placeholder="Phone Number" required>
         </div>
         <div class="form-group">
-            <label for="apartment" class="col-md-2 control-label">Apartment</label>
-            <div class="col-md-10">
-                <select class="form-control" data-ng-model="resident.apartment" id="apartment" ng-options="a._id as a.apartmentId for a in apartments"></select>
-            </div>
+            <label for="owner">Owner</label>
+            <input type="checkbox" ng-model="resident.owner" id="owner">
         </div>
         <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <button type="submit" class="btn btn-default">Submit</button>
-            </div>
+            <label for="apartment">Apartment</label>
+            <select class="form-control" data-ng-model="resident.apartment" id="apartment" ng-options="a._id as a.apartmentId for a in apartments">
+                <option value="">Choose an apartment:</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-default">Submit</button>
         </div>
     </form>
 </section>
