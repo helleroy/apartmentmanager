@@ -8,8 +8,7 @@ var ApartmentSchema = new Schema({
     stairway: {type: String, required: true},
     ownershipDate: {type: Date},
     isRented: {type: Boolean},
-    rentedSinceDate: {type: Date},
-    residents: [{type: Schema.ObjectId, ref: 'Resident'}]
+    rentedSinceDate: {type: Date}
 });
 
 ApartmentSchema.statics = {
