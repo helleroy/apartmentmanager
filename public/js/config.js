@@ -30,6 +30,10 @@ angular.module('am').config(['$stateProvider', '$urlRouterProvider',
                 url: '/residents/create',
                 templateUrl: 'views/residents/create.html'
             })
+            .state('edit resident', {
+                url: '/residents/:residentId/edit',
+                templateUrl: 'views/residents/edit.html'
+            })
             .state('resident by id', {
                 url: '/residents/:residentId',
                 templateUrl: 'views/residents/view.html'
