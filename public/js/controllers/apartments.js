@@ -66,10 +66,6 @@ angular.module('am.apartments').controller('ApartmentsController', ['$scope', '$
             $event.preventDefault();
             $event.stopPropagation();
 
-            if ($scope[target]) {
-                $scope[target] = false;
-            } else {
-                $scope[target] = true;
-            }
+            $scope[target] = !$scope[target];
         };
     }]);
