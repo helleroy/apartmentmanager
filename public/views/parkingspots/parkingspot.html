@@ -1,0 +1,15 @@
+<div ng-controller="ParkingSpotsController" ng-init="findOne();populateResidents()">
+    <h2>Parking Spot</h2>
+    <ul class="list-group">
+        <li class="list-group-item">{{ parkingSpot.parkingSpotId }}</li>
+        <li class="list-group-item">{{ parkingSpot.occupied }}</li>
+        <li class="list-group-item">{{ parkingSpot.occupiedSinceDate }}</li>
+    </ul>
+    <h2>Residents</h2>
+    <ul class="list-group">
+        <li class="list-group-item" ng-repeat="resident in residents | filter:parkingSpot._id">
+            <a href="/#!/residents/{{ resident._id }}">{{ resident.name }}</a>
+        </li>
+    </ul>
+    <a href="/#!/parkingspots/{{ parkingSpot._id }}/edit">Edit parking spot</a>
+</div>
