@@ -18,12 +18,8 @@
             <td>{{ apartment.isRented }}</td>
             <td>{{ apartment.rentedSinceDate }}</td>
             <td><span ng-repeat="resident in residents | filter:apartment.apartmentId">
-                <span ng-if="!$last">
-                    {{ resident.name }},
-                </span>
-                <span ng-if="$last">
-                    {{ resident.name }}
-                </span>
+                <a href="/#!/residents/{{ resident._id }}">{{ resident.name }}</a>
+                <span ng-show="!$last">,&nbsp;</span>
             </span></td>
             <td><a href="/#!/apartments/{{ apartment._id }}/edit">Edit</a></td>
         </tr>

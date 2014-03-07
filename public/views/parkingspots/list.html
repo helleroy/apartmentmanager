@@ -14,14 +14,9 @@
             <td>{{ parkingSpot.occupied }}</td>
             <td>{{ parkingSpot.occupiedSinceDate }}</td>
             <td><span ng-repeat="resident in residents | filter:parkingSpot._id">
-                <span ng-if="!$last">
-                    {{ resident.name }},
-                </span>
-                <span ng-if="$last">
-                    {{ resident.name }}
-                </span>
-            </span>
-            </td>
+                <a href="/#!/residents/{{ resident._id }}">{{ resident.name }}</a>
+                <span ng-show="!$last">,&nbsp;</span>
+            </span></td>
             <td><a href="/#!/parkingspots/{{ parkingSpot._id }}/edit">Edit</a></td>
         </tr>
         </tbody>

@@ -9,7 +9,9 @@
     </ul>
     <h2>Residents</h2>
     <ul class="list-group">
-        <li class="list-group-item" ng-repeat="resident in residents | filter:apartment.apartmentId">{{ resident.name }}</li>
+        <li class="list-group-item" ng-repeat="resident in residents | filter:apartment.apartmentId">
+            <a href="/#!/residents/{{ resident._id }}">{{ resident.name }}</a>
+        </li>
     </ul>
     <a href="/#!/apartments/{{ apartment._id }}/edit">Edit apartment</a>
 </div>
