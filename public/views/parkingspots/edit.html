@@ -1,0 +1,22 @@
+<div ng-controller="ParkingSpotsController" ng-init="findOne()">
+    <form ng-submit="update()">
+        <div class="form-group">
+            <label for="parkingSpotId">Parking Spot ID</label>
+            <input type="text" class="form-control" ng-model="parkingSpot.parkingSpotId" id="parkingSpotId" placeholder="Parking Spot ID" required>
+        </div>
+        <div class="form-group">
+            <label for="isOccupied">Is the parking spot occupied?</label>
+            <input type="checkbox" ng-model="parkingSpot.occupied" id="isOccupied">
+        </div>
+        <div class="form-group" ng-show="parkingSpot.occupied">
+            <label for="occupiedSinceDate">Occupied since date</label>
+            <div class="input-group">
+                <input type="text" id="occupiedSinceDate" class="form-control" datepicker-popup="dd-MMMM-yyyy" ng-model="parkingSpot.occupiedSinceDate" is-open="occupiedDatePicker" placeholder="Choose date">
+                <span class="input-group-btn"><button class="btn btn-default" ng-click="toggleDatePicker($event, 'occupiedDatePicker')"><i class="glyphicon glyphicon-calendar"></i></button></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-default">Submit</button>
+        </div>
+    </form>
+</div>

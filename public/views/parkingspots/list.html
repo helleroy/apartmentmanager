@@ -1,0 +1,30 @@
+<div ng-controller="ParkingSpotsController" ng-init="find();populateResidents()">
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>Parking spot ID</th>
+            <th>Occupied</th>
+            <th>Occupied since date</th>
+            <th>Owner</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="parkingSpot in parkingSpots">
+            <td><a href="/#!/parkingspots/{{ parkingSpot._id }}">{{ parkingSpot.parkingSpotId }}</a></td>
+            <td>{{ parkingSpot.occupied }}</td>
+            <td>{{ parkingSpot.occupiedSinceDate }}</td>
+            <td><span ng-repeat="resident in residents | filter:parkingSpot._id">
+                <span ng-if="!$last">
+                    {{ resident.name }},
+                </span>
+                <span ng-if="$last">
+                    {{ resident.name }}
+                </span>
+            </span>
+            </td>
+            <td><a href="/#!/parkingspots/{{ parkingSpot._id }}/edit">Edit</a></td>
+        </tr>
+        </tbody>
+    </table>
+    <a href="/#!/parkingspots/create">Add parking spot</a>
+</div>

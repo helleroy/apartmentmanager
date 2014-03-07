@@ -38,6 +38,22 @@ angular.module('am').config(['$stateProvider', '$urlRouterProvider',
                 url: '/apartments/:apartmentId',
                 templateUrl: 'views/apartments/view.html'
             })
+            .state('all parking spots', {
+                url: '/parkingspots',
+                templateUrl: 'views/parkingspots/list.html'
+            })
+            .state('create parking spot', {
+                url: '/parkingspots/create',
+                templateUrl: 'views/parkingspots/create.html'
+            })
+            .state('edit parking spot', {
+                url: '/parkingspots/:parkingSpotId/edit',
+                templateUrl: 'views/parkingspots/edit.html'
+            })
+            .state('parking spot by id', {
+                url: '/parkingspots/:parkingSpotId',
+                templateUrl: 'views/parkingspots/view.html'
+            })
             .state('home', {
                 url: '/',
                 templateUrl: 'views/index.html'

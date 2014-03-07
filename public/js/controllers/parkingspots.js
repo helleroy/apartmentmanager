@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('am.parkingspots').controller('ParkingSpotsController', ['$scope', '$stateParams', '$location', 'Global', 'ParkingSpots', 'Residents',
+angular.module('am.parkingSpots').controller('ParkingSpotsController', ['$scope', '$stateParams', '$location', 'Global', 'ParkingSpots', 'Residents',
     function ($scope, $stateParams, $location, Global, ParkingSpots, Residents) {
         $scope.global = Global;
 

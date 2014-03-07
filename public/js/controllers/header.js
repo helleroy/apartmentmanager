@@ -11,6 +11,10 @@ angular.module('am.system').controller('HeaderController', ['$scope', 'Global', 
         {
             title: 'Apartments',
             link: 'apartments'
+        },
+        {
+            title: 'Parking spots',
+            link: 'parkingspots'
         }
     ];
 
