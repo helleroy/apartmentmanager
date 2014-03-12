@@ -1,15 +1,17 @@
-<h2>Resident</h2>
-<ul class="list-group">
-    <li class="list-group-item">{{ resident.name }}</li>
-    <li class="list-group-item">{{ resident.email }}</li>
-    <li class="list-group-item">{{ resident.phone }}</li>
-</ul>
-<h2>Apartment</h2>
-<ul class="list-group">
-    <li class="list-group-item"><a href="/#!/apartments/{{ resident.apartment._id }}">{{ resident.apartment.apartmentId }}</a></li>
-</ul>
-<h2>Parking Spot</h2>
-<ul class="list-group">
-    <li class="list-group-item"><a href="/#!/parkingspots/{{ resident.parkingSpot._id }}">{{ resident.parkingSpot.parkingSpotId }}</a></li>
-</ul>
-<a href="/#!/residents/{{ resident._id }}/edit">Edit resident</a>
+<div ng-init="findOne()">
+    <h2>Resident</h2>
+    <ul class="list-group">
+        <li class="list-group-item">{{ resident.name }}</li>
+        <li class="list-group-item">{{ resident.email }}</li>
+        <li class="list-group-item">{{ resident.phone }}</li>
+    </ul>
+    <h2>Apartment</h2>
+    <ul class="list-group">
+        <li class="list-group-item"><a href="/#!/apartments/{{ resident.apartment._id }}">{{ resident.apartment.apartmentId }}</a></li>
+    </ul>
+    <h2>Parking Spot</h2>
+    <ul class="list-group">
+        <li class="list-group-item"><a href="/#!/parkingspots/{{ resident.parkingSpot._id }}">{{ resident.parkingSpot.parkingSpotId }}</a></li>
+    </ul>
+    <a href="/#!/residents/{{ resident._id }}/edit">Edit resident</a>
+</div>
