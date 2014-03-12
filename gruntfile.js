@@ -23,6 +23,13 @@ module.exports = function(grunt) {
                 options: {
                     livereload: true
                 }
+            },
+            less: {
+                files: ['public/css/**/*.less'],
+                tasks: ['less'],
+                options: {
+                    livereload: true
+                }
             }
         },
         jshint: {
@@ -30,6 +37,17 @@ module.exports = function(grunt) {
                 src: ['gruntfile.js', 'server.js', 'app/**/*.js', 'public/js/**', 'test/**/*.js', '!test/coverage/**/*.js'],
                 options: {
                     jshintrc: true
+                }
+            }
+        },
+        less: {
+            all: {
+                options: {
+                    compress: true,
+                    cleancss: true
+                },
+                files: {
+                    'public/css/main.css': 'public/css/**/*.less'
                 }
             }
         },
@@ -77,6 +95,7 @@ module.exports = function(grunt) {
     //Load NPM tasks
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-mocha-test');
     grunt.loadNpmTasks('grunt-karma');
     grunt.loadNpmTasks('grunt-nodemon');
@@ -87,7 +106,7 @@ module.exports = function(grunt) {
     grunt.option('force', true);
 
     //Default task(s).
-    grunt.registerTask('default', ['jshint', 'concurrent']);
+    grunt.registerTask('default', ['jshint', 'less', 'concurrent']);
 
     //Test task.
     grunt.registerTask('test', ['env:test', 'mochaTest', 'karma:unit']);
