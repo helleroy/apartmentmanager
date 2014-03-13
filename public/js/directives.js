@@ -3,9 +3,7 @@
 angular.module('am').directive('resident', function () {
     return {
         restrict: 'E',
-        controller: 'ResidentsController',
         templateUrl: 'views/residents/resident.html',
-        scope: {}
     };
 });
 

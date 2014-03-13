@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('am.residents').controller('ResidentsController', ['$scope', '$stateParams', '$location', 'Global', 'Residents', 'Apartments', 'ParkingSpots',
-    function ($scope, $stateParams, $location, Global, Residents, Apartments, ParkingSpots) {
+angular.module('am.residents').controller('ResidentsController', ['$scope', '$stateParams', '$location', '$modal', 'Global', 'Residents', 'Apartments', 'ParkingSpots',
+    function ($scope, $stateParams, $location, $modal, Global, Residents, Apartments, ParkingSpots) {
         $scope.global = Global;
 
         $scope.populateApartments = function (query) {
@@ -13,6 +13,18 @@ angular.module('am.residents').controller('ResidentsController', ['$scope', '$st
         $scope.populateParkingSpots = function (query) {
             ParkingSpots.query(query, function (parkingSpots) {
                 $scope.parkingSpots = parkingSpots;
+            });
+        };
+
+        $scope.openResident = function (resident) {
+            $modal.open({
+                templateUrl: 'views/residents/view.html',
+                controller: 'ResidentsModalController',
+                resolve: {
+                    resident: function() {
+                        return resident;
+                    }
+                }
             });
         };
 
@@ -66,4 +78,9 @@ angular.module('am.residents').controller('ResidentsController', ['$scope', '$st
                 }
             }
         };
+    }]);
+
+angular.module('am.residents').controller('ResidentsModalController', ['$scope', '$modalInstance', 'resident',
+    function ($scope, $modalInstance, resident) {
+        $scope.resident = resident;
     }]);
