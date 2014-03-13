@@ -2,7 +2,7 @@
     <h2>Parking Spot</h2>
     <ul class="list-group">
         <li class="list-group-item">{{ parkingSpot.parkingSpotId }}</li>
-        <li class="list-group-item">{{ parkingSpot.occupied }}</li>
+        <li class="list-group-item">{{ parkingSpot.occupied | checkmark }}</li>
         <li class="list-group-item">{{ parkingSpot.occupiedSinceDate }}</li>
     </ul>
     <h2>Residents</h2>

@@ -11,7 +11,7 @@
         <tbody>
         <tr ng-repeat="parkingSpot in parkingSpots">
             <td><a href="/#!/parkingspots/{{ parkingSpot._id }}">{{ parkingSpot.parkingSpotId }}</a></td>
-            <td>{{ parkingSpot.occupied }}</td>
+            <td>{{ parkingSpot.occupied | checkmark }}</td>
             <td>{{ parkingSpot.occupiedSinceDate }}</td>
             <td><span ng-repeat="resident in residents | filter:parkingSpot._id">
                 <a href="/#!/residents/{{ resident._id }}">{{ resident.name }}</a>

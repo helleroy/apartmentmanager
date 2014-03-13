@@ -15,7 +15,7 @@
             <td><a href="/#!/apartments/{{ apartment._id }}">{{ apartment.apartmentId }}</a></td>
             <td>{{ apartment.stairway }}</td>
             <td>{{ apartment.ownershipDate }}</td>
-            <td>{{ apartment.isRented }}</td>
+            <td>{{ apartment.isRented | checkmark }}</td>
             <td>{{ apartment.rentedSinceDate }}</td>
             <td><span ng-repeat="resident in residents | filter:apartment.apartmentId">
                 <a href="/#!/residents/{{ resident._id }}">{{ resident.name }}</a>

@@ -6,6 +6,7 @@
             <th>Apartment</th>
             <th>Email</th>
             <th>Phone</th>
+            <th>Owner</th>
             <th>Parking Spot</th>
         </tr>
         </thead>
@@ -15,6 +16,7 @@
             <td><a href="/#!/apartments/{{ resident.apartment._id }}">{{ resident.apartment.apartmentId }}</a></td>
             <td>{{ resident.email }}</td>
             <td>{{ resident.phone }}</td>
+            <td>{{ resident.owner | checkmark }}</td>
             <td><a href="/#!/parkingspots/{{ resident.parkingSpot._id }}">{{ resident.parkingSpot.parkingSpotId }}</a></td>
             <td><a href="/#!/residents/{{ resident._id }}/edit">Edit</a></td>
         </tr>

@@ -1,17 +1,32 @@
-<div ng-init="findOne()">
-    <h2>Resident</h2>
-    <ul class="list-group">
-        <li class="list-group-item">{{ resident.name }}</li>
-        <li class="list-group-item">{{ resident.email }}</li>
-        <li class="list-group-item">{{ resident.phone }}</li>
-    </ul>
-    <h2>Apartment</h2>
-    <ul class="list-group">
-        <li class="list-group-item"><a href="/#!/apartments/{{ resident.apartment._id }}">{{ resident.apartment.apartmentId }}</a></li>
-    </ul>
-    <h2>Parking Spot</h2>
-    <ul class="list-group">
-        <li class="list-group-item"><a href="/#!/parkingspots/{{ resident.parkingSpot._id }}">{{ resident.parkingSpot.parkingSpotId }}</a></li>
-    </ul>
-    <a href="/#!/residents/{{ resident._id }}/edit">Edit resident</a>
+<div ng-init="findOne()" class="resident">
+    <div class="row">
+        <div class="col-lg-3">
+            <h2>{{ resident.name }}</h2>
+            <ul class="list-group">
+                <li class="list-group-item"><label>Email:</label> {{ resident.email }}</li>
+                <li class="list-group-item"><label>Phone:</label> {{ resident.phone }}</li>
+                <li class="list-group-item"><label>Owner:</label> {{ resident.owner | checkmark }}</li>
+            </ul>
+        </div>
+        <div class="col-lg-3">
+            <h2>Apartment</h2>
+            <ul class="list-group">
+                <li class="list-group-item"><label>ID:</label> <a href="/#!/apartments/{{ resident.apartment._id }}">{{ resident.apartment.apartmentId }}</a></li>
+                <li class="list-group-item"><label>Stairway:</label> {{ resident.apartment.stairway }}</li>
+                <li class="list-group-item"><label>Ownership date:</label> {{ resident.apartment.ownershipDate | date: 'd. MMM yyyy' }}</li>
+            </ul>
+        </div>
+        <div class="col-lg-3">
+            <h2>Parking Spot</h2>
+            <ul class="list-group">
+                <li class="list-group-item"><label>ID:</label> <a href="/#!/parkingspots/{{ resident.parkingSpot._id }}">{{ resident.parkingSpot.parkingSpotId }}</a></li>
+                <li class="list-group-item"><label>Occupied since:</label> {{ resident.parkingSpot.occupiedSinceDate | date: 'd. MMM yyyy' }}</li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-3">
+            <a href="/#!/residents/{{ resident._id }}/edit">Edit resident</a>
+        </div>
+    </div>
 </div>
