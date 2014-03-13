@@ -1,3 +1,35 @@
 <section data-ng-controller="IndexController">
-	<h1>This is the home view</h1>
+    <accordion close-others="false" class="accordion" ng-show="global.user">
+
+        <accordion-group is-open="residentIsOpen">
+            <accordion-heading>
+                <div class="accordion-heading">
+                    Residents
+                    <i class=" pull-right glyphicon" ng-class="{'glyphicon-chevron-up': residentIsOpen, 'glyphicon-chevron-down': !residentIsOpen }"></i>
+                </div>
+            </accordion-heading>
+            <residents></residents>
+        </accordion-group>
+
+        <accordion-group is-open="apartmentIsOpen">
+            <accordion-heading>
+                <div class="accordion-heading">
+                    Apartments
+                    <i class=" pull-right glyphicon" ng-class="{'glyphicon-chevron-up': apartmentIsOpen, 'glyphicon-chevron-down': !apartmentIsOpen }"></i>
+                </div>
+            </accordion-heading>
+            <apartments></apartments>
+        </accordion-group>
+
+        <accordion-group is-open="parkingIsOpen">
+            <accordion-heading>
+                <div class="accordion-heading">
+                    Parking Spots
+                    <i class=" pull-right glyphicon" ng-class="{'glyphicon-chevron-up': parkingIsOpen, 'glyphicon-chevron-down': !parkingIsOpen }"></i>
+                </div>
+            </accordion-heading>
+            <parkingspots></parkingspots>
+        </accordion-group>
+
+    </accordion>
 </section>
