@@ -1,6 +1,6 @@
 <div class="resident">
     <div class="row">
-        <div class="col-lg-3">
+        <div class="col-md-4">
             <h2>{{ resident.name }}</h2>
             <ul class="list-group">
                 <li class="list-group-item"><label>Email:</label> {{ resident.email }}</li>
@@ -8,7 +8,7 @@
                 <li class="list-group-item"><label>Owner:</label> {{ resident.owner | checkmark }}</li>
             </ul>
         </div>
-        <div class="col-lg-3">
+        <div class="col-md-4" ng-show="resident.apartment">
             <h2>Apartment</h2>
             <ul class="list-group">
                 <li class="list-group-item"><label>ID:</label> <a href="/#!/apartments/{{ resident.apartment._id }}">{{ resident.apartment.apartmentId }}</a></li>
@@ -16,7 +16,7 @@
                 <li class="list-group-item"><label>Ownership date:</label> {{ resident.apartment.ownershipDate | date: 'd. MMM yyyy' }}</li>
             </ul>
         </div>
-        <div class="col-lg-3">
+        <div class="col-md-4" ng-show="resident.parkingSpot">
             <h2>Parking Spot</h2>
             <ul class="list-group">
                 <li class="list-group-item"><label>ID:</label> <a href="/#!/parkingspots/{{ resident.parkingSpot._id }}">{{ resident.parkingSpot.parkingSpotId }}</a></li>
