@@ -3,9 +3,9 @@
         <div class="col-md-4">
             <h2>{{ resident.name }}</h2>
             <ul class="list-group">
-                <li class="list-group-item"><label>Email:</label> {{ resident.email }}</li>
-                <li class="list-group-item"><label>Phone:</label> {{ resident.phone }}</li>
-                <li class="list-group-item"><label>Owner:</label> {{ resident.owner | checkmark }}</li>
+                <li class="list-group-item"><label>Email: </label><click-to-edit editable-model="resident.email"></click-to-edit></li>
+                <li class="list-group-item"><label>Phone: </label><click-to-edit editable-model="resident.phone"></click-to-edit></li>
+                <li class="list-group-item"><label>Owner: </label> {{ resident.owner | checkmark }}</li>
             </ul>
         </div>
         <div class="col-md-4" ng-show="resident.apartment">
@@ -28,5 +28,6 @@
         <div class="col-lg-3">
             <a href="/#!/residents/{{ resident._id }}/edit">Edit resident</a>
         </div>
+        <toggleable-link model-to-watch="resident" click-function="update()">Save changes</toggleable-link>
     </div>
 </div>
