@@ -1,12 +1,14 @@
 <div class="click-to-edit">
     <div ng-hide="editorEnabled">
         {{value}}
-        <a ng-click="enableEditor()">Edit</a>
+        <a ng-click="enableEditor()" class="edit-text">Edit</a>
     </div>
     <div ng-show="editorEnabled">
         <input ng-model="editableValue">
-        <a ng-click="done()">Done</a>
-        or
-        <a ng-click="disableEditor()">cancel</a>.
+        <span class="edit-text">
+            <a ng-click="done()">Done</a>
+            or
+            <a ng-click="disableEditor()">cancel</a>.
+        </span>
     </div>
 </div>
