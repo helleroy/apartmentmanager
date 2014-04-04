@@ -22,7 +22,10 @@
             <ul class="list-group">
                 <li class="list-group-item"><label>ID:</label> <a href="/#!/apartments/{{ resident.apartment._id }}">{{ resident.apartment.apartmentId }}</a></li>
                 <li class="list-group-item"><label>Stairway:</label> {{ resident.apartment.stairway }}</li>
-                <li class="list-group-item"><label>Ownership date:</label> {{ resident.apartment.ownershipDate | date: 'd. MMM yyyy' }}</li>
+                <li class="list-group-item">
+                    <label>Ownership date:</label>
+                    <span editable-date="resident.apartment.ownershipDate">{{ resident.apartment.ownershipDate | date: 'd. MMM yyyy' }}</span>
+                </li>
             </ul>
         </div>
         <div class="col-md-4" ng-show="resident.parkingSpot">

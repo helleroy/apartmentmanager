@@ -1,0 +1,10 @@
+<div class="click-to-edit">
+    <div ng-hide="editorEnabled">
+        <span ng-transclude></span>
+        <a ng-click="enableEditor()" class="edit-text">Edit</a>
+    </div>
+    <div class="input-group" ng-show="editorEnabled">
+        <input class="form-control" ng-model="editableValue" type="text" datepicker-popup="dd-MMMM-yyyy"  is-open="datePicker" />
+        <span class="input-group-btn"><button class="btn btn-default" ng-click="toggleDatePicker($event, 'rentedDatePicker')"><i class="glyphicon glyphicon-calendar"></i></button></span>
+    </div>
+</div>
