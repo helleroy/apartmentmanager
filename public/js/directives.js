@@ -27,34 +27,57 @@ angular.module('am').directive('parkingspots', function () {
     };
 });
 
-angular.module('am').directive('clickToEdit', function () {
-    return {
-        restrict: 'E',
-        replace: true,
-        templateUrl: 'views/directives/clicktoedit.html',
-        scope: {
-            value: '=editableModel'
-        },
-        link: function(scope) {
-            scope.editorEnabled = false;
-            scope.editableValue = scope.value;
-
-            scope.enableEditor = function () {
-                scope.editorEnabled = true;
-                scope.editableValue = scope.value;
-            };
-
-            scope.disableEditor = function () {
+angular.module('am').factory('editableFieldFactory', function() {
+    return function (settings) {
+        return {
+            restrict: 'A',
+            transclude: true,
+            templateUrl: settings.templateUrl,
+            scope: {
+                value: '=' + settings.directiveName
+            },
+            link: function(scope) {
                 scope.editorEnabled = false;
-            };
+                scope.editableValue = scope.value;
 
-            scope.done = function () {
-                scope.value = scope.editableValue;
-                scope.disableEditor();
-            };
-        }
+                scope.enableEditor = function () {
+                    scope.editorEnabled = true;
+                    scope.editableValue = scope.value;
+                };
+
+                scope.disableEditor = function () {
+                    scope.editorEnabled = false;
+                };
+
+                scope.done = function () {
+                    scope.value = scope.editableValue;
+                    scope.disableEditor();
+                };
+            }
+        };
     };
 });
+
+angular.module('am').directive('editableText', ['editableFieldFactory', function (editableFieldFactory) {
+    return editableFieldFactory({
+        templateUrl: 'views/directives/editabletext.html',
+        directiveName: 'editableText'
+    });
+}]);
+
+angular.module('am').directive('editableCheckbox', ['editableFieldFactory', function (editableFieldFactory) {
+    return editableFieldFactory({
+        templateUrl: 'views/directives/editablecheckbox.html',
+        directiveName: 'editableCheckbox'
+    });
+}]);
+
+angular.module('am').directive('editableDate', ['editableFieldFactory', function (editableFieldFactory) {
+    return editableFieldFactory({
+        templateUrl: 'views/directives/editabledate.html',
+        directiveName: 'editableDate'
+    });
+}]);
 
 angular.module('am').directive('saveButton', function () {
     return {

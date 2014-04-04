@@ -1,11 +1,20 @@
 <div ng-controller="ResidentsController" class="resident">
     <div class="row">
         <div class="col-md-4">
-            <h2> <click-to-edit editable-model="resident.name"></click-to-edit> </h2>
+            <h2 editable-text="resident.name">{{ resident.name }}</h2>
             <ul class="list-group">
-                <li class="list-group-item"><label>Email:</label> <click-to-edit editable-model="resident.email"></click-to-edit> </li>
-                <li class="list-group-item"><label>Phone:</label> <click-to-edit editable-model="resident.phone"></click-to-edit> </li>
-                <li class="list-group-item"><label>Owner:</label> {{ resident.owner | checkmark }}</li>
+                <li class="list-group-item">
+                    <label>Email:</label>
+                    <span editable-text="resident.email">{{ resident.email }}</span>
+                </li>
+                <li class="list-group-item">
+                    <label>Phone:</label>
+                    <span editable-text="resident.phone">{{ resident.phone }}</span>
+                </li>
+                <li class="list-group-item">
+                    <label>Owner:</label>
+                    <span editable-checkbox="resident.owner">{{ resident.owner | checkmark }}</span>
+                </li>
             </ul>
         </div>
         <div class="col-md-4" ng-show="resident.apartment">

@@ -1,0 +1,7 @@
+<div class="click-to-edit">
+    <div ng-hide="editorEnabled">
+        <span ng-transclude></span>
+        <a ng-click="enableEditor()" class="edit-text">Edit</a>
+    </div>
+    <input ng-model="editableValue" set-focus="editorEnabled" ng-blur="done()" type="checkbox" ng-show="editorEnabled">
+</div>
