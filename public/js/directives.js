@@ -35,32 +35,32 @@ angular.module('am').directive('clickToEdit', function () {
         scope: {
             value: '=editableModel'
         },
-        controller: function ($scope) {
-            $scope.editorEnabled = false;
-            $scope.editableValue = $scope.value;
+        link: function(scope) {
+            scope.editorEnabled = false;
+            scope.editableValue = scope.value;
 
-            $scope.enableEditor = function () {
-                $scope.editorEnabled = true;
-                $scope.editableValue = $scope.value;
+            scope.enableEditor = function () {
+                scope.editorEnabled = true;
+                scope.editableValue = scope.value;
             };
 
-            $scope.disableEditor = function () {
-                $scope.editorEnabled = false;
+            scope.disableEditor = function () {
+                scope.editorEnabled = false;
             };
 
-            $scope.done = function () {
-                $scope.value = $scope.editableValue;
-                $scope.disableEditor();
+            scope.done = function () {
+                scope.value = scope.editableValue;
+                scope.disableEditor();
             };
         }
     };
 });
 
-angular.module('am').directive('toggleableLink', function () {
+angular.module('am').directive('saveButton', function () {
     return {
         restrict: 'E',
         replace: true,
-        templateUrl: 'views/directives/toggleablelink.html',
+        templateUrl: 'views/directives/savebutton.html',
         transclude: true,
         scope: {
             modelToWatch: '&',
@@ -68,12 +68,33 @@ angular.module('am').directive('toggleableLink', function () {
         },
         link: function (scope) {
             scope.showLink = false;
+
             scope.$watch(scope.modelToWatch, function (newValue, oldValue) {
                 if (newValue === oldValue) {
                     return;
                 }
                 scope.showLink = true;
             }, true);
+
+            scope.hide = function () {
+                scope.showLink = false;
+            };
+        }
+    };
+});
+
+angular.module('am').directive('setFocus', function () {
+    return {
+        restrict: 'A',
+        scope: {
+            setFocus: '&'
+        },
+        link: function (scope, element) {
+            scope.$watch(scope.setFocus, function () {
+                if (scope.setFocus) {
+                    element[0].focus();
+                }
+            });
         }
     };
 });

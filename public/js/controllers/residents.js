@@ -52,10 +52,7 @@ angular.module('am.residents').controller('ResidentsController', ['$scope', '$st
 
         $scope.update = function () {
             var resident = $scope.resident;
-
-            resident.$update(function () {
-                $location.path('residents/' + resident._id);
-            });
+            resident.$update();
         };
 
         $scope.find = function (query) {

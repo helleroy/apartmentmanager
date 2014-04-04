@@ -4,11 +4,7 @@
         <a ng-click="enableEditor()" class="edit-text">Edit</a>
     </div>
     <div ng-show="editorEnabled">
-        <input ng-model="editableValue">
-        <span class="edit-text">
-            <a ng-click="done()">Done</a>
-            or
-            <a ng-click="disableEditor()">cancel</a>.
-        </span>
+        <input ng-model="editableValue" set-focus="editorEnabled" ng-blur="done()">
+        <a ng-click="disableEditor()"class="edit-text">Cancel</a>
     </div>
 </div>
